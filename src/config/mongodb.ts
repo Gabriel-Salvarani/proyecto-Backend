@@ -1,10 +1,9 @@
 import { connect } from "mongoose"
-import process = require("process")
 
 const connectDB = async () => {
-  const URI_DB = process.env.URI_DB!
+  const DB_URL = process.env.DB_URL!
   try {
-    await connect(URI_DB)
+    await connect(DB_URL)
     console.log("✅ Conectado a Mongo DB con éxito!")
   } catch (e) {
     console.log("❌ Error al conectarse a Mongo DB")
