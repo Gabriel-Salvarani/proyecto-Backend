@@ -1,0 +1,9 @@
+# Dependencias
+/node_modules
+
+# archivos de produccion
+/dist
+npm-debug.log*
+yarn-debug.log*
+#variables de entorno
+.env.example
