@@ -1,0 +1,6 @@
+::1 GET /api/products 404 151 - 4.462 ms
+::1 GET / 200 15 - 7.586 ms
+::1 POST /api/products 404 152 - 0.259 ms
+::1 POST /api/products 404 152 - 0.189 ms
+::1 POST /api/products?category=Electronics 404 152 - 0.195 ms
+::1 POST /api/products?category=Electronics 404 152 - 0.308 ms
