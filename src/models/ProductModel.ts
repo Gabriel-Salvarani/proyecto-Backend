@@ -1,5 +1,5 @@
-import { Schema, model } from 'mongoose'
-import IProduct  from '../interfaces/IProduct'
+import { Schema, model, Model } from 'mongoose'
+import { IProduct }  from '../interfaces/IProduct'
 
 const productSchema = new Schema<IProduct>({
   name: { type: String, required: true },

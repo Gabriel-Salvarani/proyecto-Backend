@@ -1,7 +1,8 @@
 // src/services/product.service.ts
 
 import ProductModel from '../models/ProductModel'
-import IProduct from '../interfaces/IProduct'
+// 💡 Importamos ambas interfaces para tipar correctamente los datos y los documentos de Mongoose
+import { IProduct, IProductDocument } from '../interfaces/IProduct';
 
 // -----------------------------------------------------------
 // INTERFACES DE CONSULTA (Para el Requerimiento 6: Query Params)
@@ -17,7 +18,8 @@ interface IProductQuery {
 // 1. GET: Listar Productos (Incluye Query Params - Requerimiento 6)
 // -----------------------------------------------------------
 
-export const getAllProducts = async (filters: any = {}): Promise<IProduct> => {
+// 💡 CORRECCIÓN CLAVE: El retorno ahora es Promise<IProductDocument[]>
+export const getAllProducts = async (filters: any = {}): Promise<IProductDocument[]> => {
     
     const dbQuery: IProductQuery = {}
 
@@ -44,7 +46,8 @@ export const getAllProducts = async (filters: any = {}): Promise<IProduct> => {
 
     try {
         // Ejecutar la consulta con los filtros construidos
-        const products: IProduct = await ProductModel.find(dbQuery)
+        // 💡 El resultado de find() se tipa como el documento completo de Mongoose
+        const products: IProductDocument[] = await ProductModel.find(dbQuery)
         return products
     } catch (error) {
         console.error("Error al obtener productos de la DB:", error)
@@ -56,7 +59,8 @@ export const getAllProducts = async (filters: any = {}): Promise<IProduct> => {
 // 2. GET: Obtener Producto por ID
 // -----------------------------------------------------------
 
-export const getProductById = async (id: string): Promise<IProduct | null> => {
+// 💡 CORRECCIÓN: El retorno ahora es Promise<IProductDocument | null>
+export const getProductById = async (id: string): Promise<IProductDocument | null> => {
     try {
         const product = await ProductModel.findById(id)
         return product
@@ -70,7 +74,8 @@ export const getProductById = async (id: string): Promise<IProduct | null> => {
 // 3. POST: Crear Producto
 // -----------------------------------------------------------
 
-export const createProduct = async (data: IProduct): Promise<IProduct> => {
+// 💡 CORRECCIÓN: El retorno ahora es Promise<IProductDocument>
+export const createProduct = async (data: IProduct): Promise<IProductDocument> => {
     try {
         const product = new ProductModel(data)
         await product.save()
@@ -85,7 +90,8 @@ export const createProduct = async (data: IProduct): Promise<IProduct> => {
 // 4. PUT/PATCH: Actualizar Producto
 // -----------------------------------------------------------
 
-export const updateProduct = async (id: string, data: Partial<IProduct>): Promise<IProduct | null> => {
+// 💡 CORRECCIÓN: El retorno ahora es Promise<IProductDocument | null>
+export const updateProduct = async (id: string, data: Partial<IProduct>): Promise<IProductDocument | null> => {
     try {
         const product = await ProductModel.findByIdAndUpdate(id, data, { new: true })
         return product
@@ -99,7 +105,8 @@ export const updateProduct = async (id: string, data: Partial<IProduct>): Promis
 // 5. DELETE: Eliminar Producto
 // -----------------------------------------------------------
 
-export const deleteProduct = async (id: string): Promise<IProduct | null> => {
+// 💡 CORRECCIÓN: El retorno ahora es Promise<IProductDocument | null>
+export const deleteProduct = async (id: string): Promise<IProductDocument | null> => {
     try {
         const product = await ProductModel.findByIdAndDelete(id)
         return product
