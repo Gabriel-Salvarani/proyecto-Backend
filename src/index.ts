@@ -10,12 +10,12 @@ import connectDB from "./config/mongodb";
 
 // Rutas
 import productRoutes from './routes/productRoute'; // Rutas de productos
-import authRoutes from './routes/authRoute';       // Rutas de autenticación (Necesarias para Rate Limit R4)
+import router from './routes/authRoute';       // Rutas de autenticación (Necesarias para Rate Limit R4)
 
 
 // 1. CARGA DE VARIABLES DE ENTORNO (Debe ser lo primero)
 dotenv.config(); 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 
 // 2. CONEXIÓN A LA BASE DE DATOS
@@ -46,7 +46,7 @@ app.use(express.json());
 
 // Rutas de Autenticación (POST /api/auth/login, /api/auth/register)
 // Aquí se aplicará el Rate Limit (Requerimiento 4)
-app.use('/api/auth', authRoutes); 
+app.use('/api/auth', router); 
 
 // Rutas de Productos (GET/POST/PUT/DELETE /api/products)
 // ✅ Esta línea soluciona el 404

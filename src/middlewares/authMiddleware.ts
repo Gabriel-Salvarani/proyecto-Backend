@@ -2,6 +2,8 @@
 
 import { Request, Response, NextFunction } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // -----------------------------------------------------------
 // 1. Interfaz para Request Autenticado
@@ -16,7 +18,7 @@ export interface AuthenticatedRequest extends Request {
 // 2. Clave Secreta y Constantes
 // -----------------------------------------------------------
 // ⚠️ IMPORTANTE: La clave debe cargarse desde las variables de entorno (.env)
-const JWT_SECRET = process.env.JWT_SECRET; 
+const JWT_SECRET = process.env.JWT_SECRET!; 
 
 // -----------------------------------------------------------
 // 3. Función Middleware
