@@ -3,7 +3,6 @@
 
 # archivos de produccion
 /dist
-npm-debug.log*
-yarn-debug.log*
+/logs
 #variables de entorno
 .env
