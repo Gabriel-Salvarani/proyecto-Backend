@@ -6,7 +6,7 @@ import morgan from 'morgan';
 
 // Configuración y Middlewares
 import connectDB from "./config/mongodb";
-//import logger from './config/logger'; // Logger avanzado (Requerimiento 3)
+import logger from './config/logger'; 
 
 // Rutas
 import productRoutes from './routes/productRoute'; // Rutas de productos
@@ -32,9 +32,8 @@ const app: Application = express();
 // Logger 1: Log de Consola (Para desarrollo rápido)
 app.use(morgan('dev')); 
 
-// Logger 2: Log de Archivo (Requerimiento 3)
-// ⚠️ Si el servidor sigue "crasheando" aquí, comentar temporalmente esta línea:
-// app.use(loggers.fileLogger); 
+
+app.use(logger); 
 
 // Middleware para parsear bodies JSON (Necesario para POST/PUT)
 app.use(express.json());
