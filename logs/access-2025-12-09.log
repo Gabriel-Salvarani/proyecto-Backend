@@ -1,0 +1,17 @@
+::1 GET /api/products/6937178952c8628dffca26e 400 40 - 7.899 ms
+::1 POST /api/auth/register 400 221 - 124.286 ms
+::1 POST /api/auth/register 400 1235 - 13.241 ms
+::1 POST /api/auth/register 201 88 - 231.832 ms
+::1 POST /auth/login 404 150 - 1.147 ms
+::1 POST /api/auth/login 200 252 - 681.516 ms
+::1 POST /api/auth/login 401 38 - 4.507 ms
+::1 POST /api/auth/login 401 38 - 9.582 ms
+::1 POST /api/auth/login 401 38 - 14.703 ms
+::1 POST /api/auth/login 401 38 - 5.184 ms
+::1 POST /api/auth/login 429 88 - 3.059 ms
+::1 POST /products 404 148 - 0.752 ms
+::1 POST /api/products 401 59 - 1.246 ms
+::1 POST /api/products 400 326 - 8.112 ms
+::1 POST /api/products 201 148 - 17.432 ms
+::1 POST /api/products?category=Electronics&minPrice=500 201 148 - 16.349 ms
+::1 GET /api/products?category=Electronics&minPrice=500 200 208 - 33.686 ms
